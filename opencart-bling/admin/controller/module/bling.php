@@ -4,7 +4,17 @@ class ControllerModuleBling extends Controller {
 
 	public function install(){
 		$this->load->model('module/bling');
+		$this->load->model('setting/setting');
 
+		$settings = $this->model_setting_setting->getSetting('bling',$store_id);
+
+		$settings['apikey'] = '';
+
+		$this->model_setting_setting->editSetting('bling',$settings,$store_id);
+
+		$store_id = $this->config->get('config_store_id');
+
+		$this->model_module_bling->setupLayout($store_id);
 		$this->model_module_bling->createModuleTables();
 	}
 
@@ -622,7 +632,7 @@ class ControllerModuleBling extends Controller {
 
 		curl_close($curl_handle);
 
-		$this->model_module_bling->setids_assoc($codigo,$produto['product_id']);
+		//$this->model_module_bling->setids_assoc($codigo,$produto['product_id']);
 	}
 
 	public function exportar_produtos($list,$key){
@@ -641,7 +651,7 @@ class ControllerModuleBling extends Controller {
 		$data = explode('-',$data[0]);
 		$data = $data[2].'/'.$data[1].'/'.$data[0];
 		$xml .= '<data>'.$data.'</data>';
-		$xml .= '<numero>'.$pedido['order_id'].'</numero>';
+		//$xml .= '<numero>'.$pedido['order_id'].'</numero>';
 		$xml .= '<numero_loja>'.$pedido['order_id'].'</numero_loja>';
 
 		$xml .= '<cliente>';
@@ -668,7 +678,7 @@ class ControllerModuleBling extends Controller {
 
 		for($i=0,$l=count($produtos);$i<$l;++$i){
 			$codigo = $this->gerar_codigo($produtos[$i]['product_id']);
-			$this->model_module_bling->setids_assoc($codigo,$produtos[$i]['product_id']);
+			//$this->model_module_bling->setids_assoc($codigo,$produtos[$i]['product_id']);
 
 			$xml .= '<item>';
 			$xml .= '<codigo>'.$codigo.'</codigo>';
@@ -678,20 +688,21 @@ class ControllerModuleBling extends Controller {
 			$xml .= '</item>';
 		}
 
-		$vouchers = $this->model_sale_order->getOrderVouchers($data['order_id']);
+		$vouchers = $this->model_sale_order->getOrderVouchers($pedido['order_id']);
 
 		$frete = 0;
 		$desconto = 0;
 
-		$totals = $this->model_sale_order->getOrderTotals($data['order_id']);
+		$totals = $this->model_sale_order->getOrderTotals($pedido['order_id']);
 
 		foreach($totals as $total){
-
-
+			if ($total['code'] == 'shipping') $frete += $total;
+			if ($total['code'] == 'coupon') $frete += $total;
+			if ($total['code'] == 'voucher') $frete += $total;
 		}
 
-		$xml .= '<vlr_frete>'.$produtos[$i]['price'].'</vlr_frete>';
-		$xml .= '<vlr_desconto>'.$produtos[$i]['price'].'</vlr_desconto>';
+		$xml .= '<vlr_frete>'.+$frete.'</vlr_frete>';
+		$xml .= '<vlr_desconto>'.+$desconto.'</vlr_desconto>';
 		$xml .= '</pedido>';
 
 		$postdata = array('apikey' => $key,'xml' => $xml);
@@ -768,11 +779,14 @@ class ControllerModuleBling extends Controller {
 		$apikey = '';
 		$this->data['aba'] = 0;
 
+		$settings = $this->model_setting_setting->getSetting('bling',$store_id);
+
 		if (isset($this->request->post['apikey'])){
 			$this->data['aba'] = 2;
 			$apikey = trim($this->request->post['apikey']);
 
 			if (strlen($apikey) == 40){
+				$settings['apikey'] = $apikey;
 				$this->model_setting_setting->editSetting('bling',array('apikey' => $apikey),$store_id);
 				$this->data['apikey'] = $apikey;
 			} else {
