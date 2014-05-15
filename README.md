@@ -20,21 +20,23 @@ O Bling é um sistema online que integra diversas ferramentas que podem auxiliar
 Funciona apenas com Real e com endereço no Brasil.
 Saiba mais fazendo uma [Tour no Bling](https://www.bling.com.br/tour/)
 
-### Instalação: ###
+### Instalação no OpenCart ###
 * Copie as pastas admin a catalog para a pasta de instalação do Opencart.
 * Na página de admininstração vá em extensões -> módulos e clique em instalar o modulo bling
 
-### Usando o módulo ###
+### Configuração ###
 
-O menu do modulo é acessado em em extensões -> modulos -> bling -> editar,
-Quando é acessado, ele produz uma listagem de produtos e pedidos, e opções de exportar, importar, ou atualizar.
-No momento só é possivel exportar.
-
-Para realizar qualquer função, é necessario primeiro, configurar a chave de api para web services, para isso:
+Para realizar qualquer função, é necessário primeiro, configurar a chave de API para web services, para isso:
     
-* Crie uma chave de api para web services nas preferencias do bling.
+* Crie uma chave de api para Web Services em preferências do Bling.
 * Abra o menu do modulo no opencart.
 * Em configuração, coloque a chave gerada no primeiro passo no campo apikey, e clique em salvar.
+
+### Usando o módulo ###
+
+O menu do módulo é acessado em em extensões -> modulos -> bling -> editar  
+Quando acessado, produz uma listagem de produtos e pedidos, e opções de exportar, importar, ou atualizar.
+No momento só é possivel exportar.
 
 Para exportar produtos/pedidos, selecione os produtos/pedidos que deseja exportar clicando na checkbox à esquerda da imagem, e clique em exportar.
     
