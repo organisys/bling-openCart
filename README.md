@@ -34,7 +34,7 @@ Para realizar qualquer função, é necessário primeiro, configurar a chave de 
 
 ### Usando o módulo ###
 
-O menu do módulo é acessado em em extensões -> modulos -> bling -> editar  
+* O menu do módulo é acessado em em extensões -> modulos -> bling -> editar  
 Quando acessado, produz uma listagem de produtos e pedidos, e opções de exportar, importar, ou atualizar.
 No momento só é possivel exportar.
 
