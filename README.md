@@ -39,3 +39,33 @@ Para realizar qualquer função, é necessário primeiro, configurar a chave de 
 * Quando acessado, produz uma listagem de produtos e pedidos, e opções de exportar, importar, ou atualizar.
 * No momento só é possivel exportar.  
 * Para exportar produtos/pedidos, selecione os produtos/pedidos que deseja exportar clicando na checkbox à esquerda da imagem, e clique em exportar.  
+
+## Frequently Asked Questions ##
+
+### FAQ (en): ###
+
+### What do I need to use this plugin? ###
+
+* Have installed the [Open Cart](http://www.opencart.com/) plugin.
+* Owning an account on [Bling](http://www.bling.com.br/).
+* Generate an **[Access Key](http://bling.com.br/configuracoes.api.web.services.php)** in Bling;
+
+### How work the Bling? ###
+
+* Learn more [Sobre o Bling](https://www.bling.com.br/tour/).
+* Or go to [FAQ do Bling](http://www.bling.com.br/faq.php).
+
+### FAQ (pt_BR): ###
+
+### O que eu preciso para utilizar este plugin? ###
+
+* Ter instalado o plugin [Open Cart](http://www.opencart.com/).
+* Possuir uma conta no [Bling](http://bling.com.br/).
+* Gerar uma **[Chave de Acesso](http://bling.com.br/configuracoes.api.web.services.php)** no Bling;
+
+### Como funciona o Bling? ###
+
+* Saiba mais em [Sobre o Bling](http://bling.com.br/home.php?p=tour).
+* Ou acesse a [FAQ do Bling](http://bling.com.br/perguntas-frequentes).
+
+
