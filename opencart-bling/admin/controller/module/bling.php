@@ -184,12 +184,12 @@ class ControllerModuleBling extends Controller {
 		$this->data['text_no_results'] = $this->language->get('text_no_results');
 		$this->data['text_missing'] = $this->language->get('text_missing');
 
-		$this->data['column_order_id'] = htmlspecialchars('Nº do pedido');
+		$this->data['column_order_id'] = htmlspecialchars('Nï¿½ do pedido');
 		$this->data['column_customer'] = 'Cliente';
-		$this->data['column_status'] = htmlspecialchars('Situação');
+		$this->data['column_status'] = htmlspecialchars('Situaï¿½ï¿½o');
 		$this->data['column_total'] = 'Total';
-		$this->data['column_date_added'] = htmlspecialchars('Data de criação');
-		$this->data['column_date_modified'] = htmlspecialchars('Data de modificação');
+		$this->data['column_date_added'] = htmlspecialchars('Data de criaï¿½ï¿½o');
+		$this->data['column_date_modified'] = htmlspecialchars('Data de modificaï¿½ï¿½o');
 
 		$this->data['button_invoice'] = $this->language->get('button_invoice');
 		$this->data['button_insert'] = $this->language->get('button_insert');
@@ -482,9 +482,9 @@ class ControllerModuleBling extends Controller {
 		$this->data['column_image'] = 'Imagem';
 		$this->data['column_name'] = 'Nome';
 		$this->data['column_model'] = 'Modelo';
-		$this->data['column_price'] = htmlspecialchars('Preço');
+		$this->data['column_price'] = htmlspecialchars('Preï¿½o');
 		$this->data['column_quantity'] = 'Quantidade';
-		$this->data['column_status'] = htmlspecialchars('Situação');
+		$this->data['column_status'] = htmlspecialchars('Situaï¿½ï¿½o');
 
 		$this->data['button_copy'] = $this->language->get('button_copy');
 		$this->data['button_insert'] = $this->language->get('button_insert');
@@ -613,6 +613,11 @@ class ControllerModuleBling extends Controller {
 		$xml .= '<peso_bruto>'.$produto['weight'].'</peso_bruto>';
 		$xml .= '<peso_liq>'.$produto['weight'].'</peso_liq>';
 		$xml .= '<estoque>'.$produto['quantity'].'</estoque>';
+		$xml .= '<gtin>'.$produto['ean'].'</gtin>';
+		$xml .= '<descricaoComplementar>'.$produto['description'].'</descricaoComplementar>';
+		$xml .= '<profundidade>'.$produto['length'].'</profundidade>';
+		$xml .= '<largura>'.$produto['width'].'</largura>';
+		$xml .= '<altura>'.$produto['height'].'</altura>';
 		$xml .= '</produto>';
 
 		$postdata = array('apikey' => $key,'xml' => $xml);
