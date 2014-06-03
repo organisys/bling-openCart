@@ -4,7 +4,7 @@
 ################################################################################################
 
 // Heading 
-$_['heading_title']  = 'My Module';
+$_['heading_title']  = 'Bling';
 
 // Text
 //Add any you need here, the same way described in the admin section.
