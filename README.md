@@ -1,5 +1,5 @@
 # Bling OpenCart #
-**Contributors:** bling, lucasnodari, lucasrsilveira  
+**Contributors:** bling, lucasnodari, lucasrsilveira, leo-organisys 
 **Tags:** management, stock, finances, ERP, NFe, nota fiscal eletrônica  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
