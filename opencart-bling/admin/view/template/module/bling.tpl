@@ -34,13 +34,16 @@
 			color:#202080;
 		}
     </style>
+    <form id="form_pages" method="post">
+	<input style="display:none" id="action_aba" name="action_aba" value="" />
+    </form>
     <p id="_produtos" data-active="true">Produtos</p>
     <p id="_pedidos" style="margin:-35px 0 0 222px;width:70px">Pedidos</p>
     <p id="_config" style="margin:-35px 0 0 305px;width:116px">Configura&ccedil;&atilde;o</p>
     <script>
-		document.getElementById('_produtos').onclick = function(){exibir_aba('produtos','pedidos','config');};
-		document.getElementById('_pedidos').onclick = function(){exibir_aba('pedidos','produtos','config');};
-		document.getElementById('_config').onclick = function(){exibir_aba('config','produtos','pedidos');};
+		document.getElementById('_produtos').onclick = function(){exibir_aba('produtos','pedidos','config');$('#action_aba').attr('value','produtos');$('#form_pages').submit();};
+		document.getElementById('_pedidos').onclick = function(){exibir_aba('pedidos','produtos','config');$('#action_aba').attr('value','pedidos');$('#form_pages').submit();};
+		document.getElementById('_config').onclick = function(){exibir_aba('config','produtos','pedidos');$('#action_aba').attr('value','config');$('#form_pages').submit();};
 
 		function exibir_aba(aba,ocultar1,ocultar2){
 			document.getElementById(aba).style.display = '';
