@@ -784,6 +784,16 @@ class ControllerModuleBling extends Controller {
 		$apikey = '';
 		$this->data['aba'] = 0;
 
+		if (isset($_POST["action_aba"])) {
+			if ($_POST["action_aba"] == 'produtos') {
+				$this->data['aba'] = 0;
+			} else if ($_POST["action_aba"] == 'pedidos') {
+				$this->data['aba'] = 1;
+			} else if ($_POST["action_aba"] == 'config') {
+				$this->data['aba'] = 2;
+			}
+		}
+
 		$settings = $this->model_setting_setting->getSetting('bling',$store_id);
 
 		if (isset($this->request->post['apikey'])){
