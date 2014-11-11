@@ -701,9 +701,9 @@ class ControllerModuleBling extends Controller {
 		$totals = $this->model_sale_order->getOrderTotals($pedido['order_id']);
 
 		foreach($totals as $total){
-			if ($total['code'] == 'shipping') $frete += $total;
-			if ($total['code'] == 'coupon') $frete += $total;
-			if ($total['code'] == 'voucher') $frete += $total;
+			if ($total['code'] == 'shipping') $frete += $total['value'];
+			if ($total['code'] == 'coupon') $frete += $total['value'];
+			if ($total['code'] == 'voucher') $frete += $total['value'];
 		}
 
 		$xml .= '<vlr_frete>'.+$frete.'</vlr_frete>';
